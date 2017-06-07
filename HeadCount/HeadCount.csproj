@@ -73,7 +73,7 @@
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SelectContactsActivity.cs" />
     <Compile Include="Adapters\ContactPickerAdapter.cs" />
-    <Compile Include="Classes\ObjectExtention.cs" />
+    <Compile Include="Classes\ExtentionMeth.cs" />
     <Compile Include="Classes\SmsBroadcastReceiver.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
