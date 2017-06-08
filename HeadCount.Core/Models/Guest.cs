@@ -9,7 +9,7 @@
     }
     public class Guest
     {
-        public Status Status { get; set; }
+        public Status Status { get; set; } = Status.NoResponse;
 
         public string Name { get; set; }
 

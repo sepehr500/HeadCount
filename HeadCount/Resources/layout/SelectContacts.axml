@@ -8,8 +8,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="text" />
-    <ListView
+   <ListView
         android:id="@+id/ContactsListView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1" />
 </LinearLayout>

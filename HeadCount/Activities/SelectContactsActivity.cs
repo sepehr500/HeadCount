@@ -12,6 +12,8 @@ using Android.Widget;
 using HeadCount.Adapters;
 using HeadCount.Services;
 using HeadCount.Classes;
+using HeadCount.Core.Models;
+using Newtonsoft.Json;
 
 namespace HeadCount.Activities
 {
@@ -23,6 +25,10 @@ namespace HeadCount.Activities
         List<Contact> MainList;
 
         ListView contactsListView;
+
+
+        Event Event;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -32,14 +38,24 @@ namespace HeadCount.Activities
             MainList = ContactManagerService.getContacts(this);
             adapt = new ContactPickerAdapter(this, Clone(MainList));
 
+            Event = JsonConvert.DeserializeObject<Event>(Intent.GetStringExtra("MainData"));
+
+
             contactsListView = FindViewById<ListView>(Resource.Id.ContactsListView);
+            var nextButton = FindViewById<Button>(Resource.Id.button1);
             var SearchView = FindViewById<SearchView>(Resource.Id.search);
 
             SearchView.QueryTextChange += SearchView_QueryTextChange;
             contactsListView.ItemClick += ContactsListView_ItemClick;
+            nextButton.Click += NextButton_Click;
 
             contactsListView.Adapter = adapt;
 
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ContactsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
