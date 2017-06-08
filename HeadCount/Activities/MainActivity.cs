@@ -24,7 +24,7 @@ namespace HeadCount
             SetContentView(Resource.Layout.Main);
             Button button = FindViewById<Button>(Resource.Id.button1);
             button.Click += delegate {
-                StartActivity(typeof(SelectContactsActivity));
+                StartActivity(typeof(FillDetailsActivity));
             };
         }
     }

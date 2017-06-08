@@ -74,17 +74,17 @@ namespace HeadCount
 			// aapt resource value: 0x7f050007
 			public const int ContactsListView = 2131034119;
 			
-			// aapt resource value: 0x7f050005
-			public const int button1 = 2131034117;
-			
 			// aapt resource value: 0x7f050002
-			public const int editText1 = 2131034114;
+			public const int EventNameBox = 2131034114;
 			
 			// aapt resource value: 0x7f050003
-			public const int editText2 = 2131034115;
+			public const int InviteBox = 2131034115;
 			
 			// aapt resource value: 0x7f050004
-			public const int relativeLayout1 = 2131034116;
+			public const int button1 = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int relativeLayout1 = 2131034117;
 			
 			// aapt resource value: 0x7f050006
 			public const int search = 2131034118;

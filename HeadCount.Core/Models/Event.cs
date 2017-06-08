@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace HeadCount.Core.Models
 {
-    class Event
+    public class Event
     {
         public string Name { get; set; }
 
         public string Message { get; set; }
 
         public List<Guest> Guests { get; set; }
+
+        public bool IsFinished { get; set; }
     }
 }
