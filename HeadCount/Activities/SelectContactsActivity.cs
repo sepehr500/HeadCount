@@ -14,6 +14,7 @@ using HeadCount.Services;
 using HeadCount.Classes;
 using HeadCount.Core.Models;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace HeadCount.Activities
 {
@@ -49,13 +50,24 @@ namespace HeadCount.Activities
             contactsListView.ItemClick += ContactsListView_ItemClick;
             nextButton.Click += NextButton_Click;
 
+
             contactsListView.Adapter = adapt;
 
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Intent intent = new Intent(this , typeof(ReviewDetailsActivity));
+            Event.Guests = new List<Guest>();
+            foreach (var item in MainList.Where(x => x.Selected))
+            {
+                Event.Guests.Add(new Guest() {
+                    Name = item.DisplayName,
+                    Number = RemoveSpecialCharacters(item.PhoneNumber),
+                });
+            }
+            intent.PutExtra("MainData", JsonConvert.SerializeObject(Event));
+            StartActivity(intent);
         }
 
         private void ContactsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -83,6 +95,11 @@ namespace HeadCount.Activities
         public List<Contact> Clone(List<Contact> list)
         {
             return list.ConvertAll(y => new Contact(y));
+        }
+
+        public string RemoveSpecialCharacters(string str)
+        {
+            return Regex.Replace(str, "[^a-zA-Z0-9_.]+", "", RegexOptions.Compiled);
         }
     }
 }

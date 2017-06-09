@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Activities\FillDetailsActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Activities\ReviewDetailsActivity.cs" />
     <Compile Include="Activities\SelectContactsActivity.cs" />
     <Compile Include="Adapters\ContactPickerAdapter.cs" />
     <Compile Include="Classes\ExtentionMeth.cs" />
@@ -92,6 +93,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\FillDetails.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ReviewDetails.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
