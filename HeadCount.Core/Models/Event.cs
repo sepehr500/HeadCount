@@ -12,7 +12,7 @@ namespace HeadCount.Core.Models
 
         public string Message { get; set; }
 
-        public List<Guest> Guests { get; set; }
+        public List<Guest> Guests { get; set; } = new List<Guest>();
 
         public bool IsFinished { get; set; }
     }
