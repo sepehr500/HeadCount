@@ -11,8 +11,11 @@ using Android.Views;
 using Android.Widget;
 using Android.Telephony;
 using System.Threading.Tasks;
+using HeadCount.Core.Data;
+using Couchbase.Lite;
+using HeadCount.Core.Models;
 
-namespace FriendWrangler.Droid
+namespace HeadCount.Droid
 {
 
 
@@ -54,7 +57,22 @@ namespace FriendWrangler.Droid
                         string messagefrom = message.DisplayOriginatingAddress;
                         string messagebody = message.MessageBody;
                         this.message = messagebody;
-                        Task.Delay(4000);
+                        var mDatabase = new DatabaseManager();
+                        var db = mDatabase.GetDb();
+                        Document document = db.GetDocument("1");
+                        var Event = (Event)document.Properties["event"];
+                        foreach (var item in Event.Guests.Where(y => y.Number == messagefrom))
+                        {
+                            item.Response = messagebody;
+                            item.Status = Core.Models.Status.Maybe;
+                        }
+                        document.Update((UnsavedRevision newRevision) =>
+                        {
+                            var properties = newRevision.Properties;
+                            properties["event"] = Event;
+                            return true;
+                        });
+
                         if (Received != null) Received(messagebody, messagefrom);
                     }
                 }
