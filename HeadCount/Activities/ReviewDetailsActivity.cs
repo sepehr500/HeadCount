@@ -46,7 +46,7 @@ namespace HeadCount.Activities
 
         private void SendMessageButton_Click(object sender, EventArgs e)
         {
-            //SendMessageService.SendMessages(Event.Guests.Select(x => x.Number).ToList(), Event.Message);
+            SendMessageService.SendMessages(Event.Guests.Select(x => x.Number).ToList(), Event.Message);
             Toast.MakeText(this, "Messages Sent!", ToastLength.Short);
             var mDatabase = new DatabaseManager();
             var db = mDatabase.GetDb();

@@ -47,10 +47,23 @@ namespace HeadCount.Activities
             listView.Adapter = adapt;
         }
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+        }
+
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            Event = GetDocument("1");
+            adapt.UpdateGuestList(Event.Guests);
+
+        }
         public Event GetDocument(string DocumentId)
         {
             var mDatabase = new DatabaseManager();
-            var db = mDatabase.GetDb();
+            db = mDatabase.GetDb();
             Document document = db.GetDocument(DocumentId);
             return (Event)document.Properties["event"];
         }

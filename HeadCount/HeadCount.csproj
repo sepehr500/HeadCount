@@ -97,6 +97,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
+    <Reference Include="VaderSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodingUpAStorm.VaderSharp.1.0.3\lib\netstandard1.6\VaderSharp.dll</HintPath>
+    </Reference>
     <Reference Include="websocket-sharp, Version=1.0.2.23848, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Couchbase.Lite.1.4.0\lib\MonoAndroid\websocket-sharp.dll</HintPath>
     </Reference>
@@ -110,6 +113,7 @@
     <Compile Include="Adapters\ContactPickerAdapter.cs" />
     <Compile Include="Adapters\EventViewerAdapter.cs" />
     <Compile Include="Classes\ExtentionMeth.cs" />
+    <Compile Include="Classes\SmsReceiveService.cs" />
     <Compile Include="Services\SendMessageService.cs" />
     <Compile Include="Classes\SmsBroadcastReceiver.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

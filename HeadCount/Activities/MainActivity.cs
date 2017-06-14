@@ -17,7 +17,7 @@ namespace HeadCount
         {
             base.OnCreate(bundle);
 
-            Couchbase.Lite.Storage.SQLCipher.Plugin.Register();
+           Couchbase.Lite.Storage.SQLCipher.Plugin.Register();
             var db = new DatabaseManager();
 
             // Set our view from the "main" layout resource
