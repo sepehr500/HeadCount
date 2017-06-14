@@ -64,6 +64,7 @@ namespace HeadCount.Activities
                 Event.Guests.Add(new Guest() {
                     Name = item.DisplayName,
                     Number = RemoveSpecialCharacters(item.PhoneNumber),
+                    ImageId = item.PhotoId
                 });
             }
             intent.PutExtra("MainData", JsonConvert.SerializeObject(Event));

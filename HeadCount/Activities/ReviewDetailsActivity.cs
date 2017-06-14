@@ -12,6 +12,9 @@ using Android.Widget;
 using Newtonsoft.Json;
 using HeadCount.Core.Models;
 using System.Text.RegularExpressions;
+using HeadCount.Classes;
+using Couchbase.Lite;
+using HeadCount.Core.Data;
 
 namespace HeadCount.Activities
 {
@@ -43,8 +46,24 @@ namespace HeadCount.Activities
 
         private void SendMessageButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SendMessageService.SendMessages(Event.Guests.Select(x => x.Number).ToList(), Event.Message);
+            Toast.MakeText(this, "Messages Sent!", ToastLength.Short);
+            var mDatabase = new DatabaseManager();
+            var db = mDatabase.GetDb();
+            var properties = new Dictionary<String, Object>
+            {
+                { "type", "Event" },
+                { "event", Event }
+            };
+            Document document = db.GetDocument("1");
+            document.Delete();
+            document = db.GetDocument("1");
+            document.PutProperties(properties);
+            Intent intent = new Intent(this , typeof(EventViewerActivity));
+            intent.PutExtra("MainData", document.Id);
+            StartActivity(intent);
+
         }
 
-           }
+    }
 }

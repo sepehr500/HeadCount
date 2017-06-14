@@ -11,8 +11,12 @@ using Android.Views;
 using Android.Widget;
 using Android.Telephony;
 using System.Threading.Tasks;
+using HeadCount.Core.Data;
+using Couchbase.Lite;
+using HeadCount.Core.Models;
+using HeadCount.Classes;
 
-namespace FriendWrangler.Droid
+namespace HeadCount.Droid
 {
 
 
@@ -54,7 +58,7 @@ namespace FriendWrangler.Droid
                         string messagefrom = message.DisplayOriginatingAddress;
                         string messagebody = message.MessageBody;
                         this.message = messagebody;
-                        Task.Delay(4000);
+                        SmsReceiveService.HandleMessage(messagebody, messagefrom);
                         if (Received != null) Received(messagebody, messagefrom);
                     }
                 }

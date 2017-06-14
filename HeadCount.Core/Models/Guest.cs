@@ -16,5 +16,7 @@
         public string Number { get; set; }
 
         public string Response { get; set; }
+
+        public string ImageId { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace HeadCount.Core.Data
 {
     public class DatabaseManager
     {
-        const string DbName = "HeadCount";
+        const string DbName = "headcount";
 
         public Database db { get; set; }
 
@@ -23,6 +23,10 @@ namespace HeadCount.Core.Data
             {
                 return;
             }
+        }
+        public Database GetDb()
+        {
+            return db;
         }
     }
 }
